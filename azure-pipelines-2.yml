@@ -10,4 +10,4 @@ variables:
    value: contoso
 
 steps: 
-- bash: echo Vikram\$(projectName)
+- bash: echo Vikram/$(projectName)
