@@ -1,12 +1,19 @@
-pool:
-  vmImage: 'ubuntu-16.04'
-
-variables:
- - name: projectName
-   value: contoso
 trigger:
-  - master
-steps: 
-- bash: echo $(projectName)
-- powershell: echo $(projectName)
-- script: echo $(projectName)
+- main
+
+pool:
+  vmImage: `ubuntu-latest`
+
+steps:
+- bash: az --version
+  displayName: 'Show Azure CLI version'
+
+- bash: az devops configure --defaults organization=$(System.TeamFoundationCollectionUri) project=$(System.TeamProject) --use-git-aliases true
+  displayName: 'Set default Azure DevOps organization and project'
+
+- bash: |
+    az pipelines build list
+    git pr list
+  displayName: 'Show build list and PRs'
+  env:
+    AZURE_DEVOPS_EXT_PAT: $(System.AccessToken)
