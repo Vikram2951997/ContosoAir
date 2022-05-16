@@ -2,11 +2,11 @@ trigger:
 - main
 
 pool:
-  vmImage: 'windows-latest'
+  vmImage: `ubuntu-latest`
 
 steps:
-- bash: |
-    az pipelines build list
-  displayName: 'Show build list'
-  env:
-    AZURE_DEVOPS_EXT_PAT: $(System.AccessToken)
+- bash: az --version
+  displayName: 'Show Azure CLI version'
+
+- bash: az devops configure --defaults organization=$(System.TeamFoundationCollectionUri) project=$(System.TeamProject) --use-git-aliases true
+  displayName: 'Set default Azure DevOps organization and project'
