@@ -13,7 +13,6 @@ steps:
 
     script:
 
-     az login -u vikramathreya2905@outlook.com -p ThisisIt@291997~1
      az pipelines create --name 'ContosoBuild' --description 'Pipeline for contoso project'--repository https://github.com/Vikram2951997/ContosoAir.git --branch master --yml-path azure-pipelines.yml --service-connection vikramathreya2905-Git Local-5ec7c132-93b8-485b-a746-baeea274ed96
 
 
