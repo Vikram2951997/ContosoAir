@@ -13,5 +13,9 @@ steps:
 
     script:
 
-     az pipelines create --name 'ContosoBuild' --description 'Pipeline for contoso project' --repository https://github.com/Vikram2951997/ContosoAir.git --branch master
+     az pipelines create --name TestPipe --org https://dev.azure.com/vikramathreya2905/ --project NoSapce --repository https://github.com/Vikram2951997/ContosoAir.git --branch master --yaml-path azure-pipelines.yml --skip-first-run true --service-connection vikramathreya2905-Git Local-5ec7c132-93b8-485b-a746-baeea274ed96
+     env:
+     AZURE_DEVOPS_EXT_PAT: $(PAT)
+
+
 
