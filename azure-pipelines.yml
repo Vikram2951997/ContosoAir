@@ -13,5 +13,5 @@ steps:
 
     script:
 
-     az pipelines create --name BuildPipeline --org https://dev.azure.com/vikramathreya2905/ --project NoSpace --repository NoSpace --branch master --skip-first-run true --service-connection vikramathreya2905-NoSpace-5ec7c132-93b8-485b-a746-baeea274ed96
+     az pipelines create --name BuildPipeline --org https://dev.azure.com/vikramathreya2905/ --project NoSpace --repository NoSpace --repository-type github --branch master --skip-first-run true --service-connection vikramathreya2905-NoSpace-5ec7c132-93b8-485b-a746-baeea274ed96
 
